@@ -1,4 +1,4 @@
-FROM node:8
+FROM resin/raspberry-pi-node:6-slim
 
 ENV CONN_STRING='HostName=quack-driver.azure-devices.net;DeviceId=device_01;SharedAccessKey=FNCNjxJDj88Xs9wFYKnJBKlKpt7aKxcE0QTb1LyHZ2c='
 
@@ -9,7 +9,5 @@ COPY package*.json ./
 RUN npm install
 
 COPY . ./
-
-EXPOSE 8080
 
 CMD [ "npm", "start" ]
