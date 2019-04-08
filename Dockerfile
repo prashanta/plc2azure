@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi-node:6-slim
+FROM resin/raspberry-pi-node:8-slim
 
 ENV CONN_STRING='HostName=quack-driver.azure-devices.net;DeviceId=device_01;SharedAccessKey=FNCNjxJDj88Xs9wFYKnJBKlKpt7aKxcE0QTb1LyHZ2c='
 
@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN JOBS=MAX npm install --production --unsafe-perm && npm cache clean && rm -rf /tmp/*
 
 COPY . ./
 
