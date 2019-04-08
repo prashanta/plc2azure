@@ -18,7 +18,7 @@ group.add(new Tag("T_300")); // Controller Scope Tag
 
 console.log("Connecting to PLC @ " + PLCIP);
 
-PLC.connect(, 0).then(() => {
+PLC.connect(PLCIP, 0).then(() => {
     console.log("Connection to PLC ... successful!");
     console.log(PLC.properties);
 
